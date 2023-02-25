@@ -61,4 +61,6 @@ def update_record(request, record_pk):
         if form.is_valid():
             form.save()
             return redirect('view_record', pk=record_pk)
-        return render (request, 'view_record.html',context={'form': form} )
+        return render (request, 'view_record.html', context={'form': form, 'record': record})
+    form = GuestBookForm(instance=record)
+    return render (request, 'view_record.html', context={'form': form, 'record': record})

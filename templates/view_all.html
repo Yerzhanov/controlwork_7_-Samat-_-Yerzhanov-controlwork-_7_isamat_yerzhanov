@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+            {% if records %}
+                 <h1> Количество текущих записей в книге - {{ records.count }}</h1>
+            {% else %}
+                           <h1>Текущие записи</h1>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+        {% if records %}
+            <div class="list-group">
+                {% for record in records %}
+                    <a href="{% url 'view_record' record.id %}" class="list-group-item list-group-item-action
+                    {% if record.important %} list-group-item-danger{% endif %}">
+                        Автор- <b>{{ record.user }}</b><br> Электронная почта <b>{{ record.user.email }}</b><br>
+                        <b>{{ record.title }}</b>
+                        {% if record.description %} - {{ record.titile }} {{ record.description }}<br>
+                        Запись сделана - {{ record.date_created }}<br>
+                        Запись отредактирована - {{ record.date_updated }}. <br>Статус записи - {{ record.status }}
+                    {% endif %}</a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="text-center">
+                <h2>Пока нет никаких записей</h2>
+            <br>
+            <a role="button" class="btn btn-primary" href="#">Новая запись</a>
+            </div>
+        {% endif %}
+        </div>
+    </div>
+{% endblock %}

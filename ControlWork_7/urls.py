@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from book_quest.views import index, records, view_record, view_all, create_record, delete_record
+from book_quest.views import index, records, view_record, view_all, create_record, delete_record, update_record
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,6 +25,7 @@ urlpatterns = [
     path('create_record/', create_record, name='create_record'),
 
     path('view_record/<int:record_pk>', view_record, name='view_record'),
+    path('record/<int:record_pk>/update', update_record, name='update_record'),
     path('record/<int:record_pk>/delete', delete_record, name='delete_record'),
 
 ]
