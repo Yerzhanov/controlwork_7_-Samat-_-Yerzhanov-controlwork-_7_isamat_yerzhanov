@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<div class="row justify-content-center mt-5">
+        <div class="col-md-7 text-center">
+
+                 <h1>Добро пожаловать в виртуальную гостевую книгу.</h1>
+                <p>Здесь вы можете оставлять свои отзывы.
+                <u>Записи можно редактировать</u>, или удалять.
+                Приложение<b><i> Гостевая книга</i></b> из контрольной работы №7 поможет вам в этом.</p>
+            <a role="button" class="btn btn-primary btn-lg" href="{% url 'view_all' %}">Посмотреть <b>все</b> записи</a>
+        </div>
+    </div>
+
+{% endblock %}
