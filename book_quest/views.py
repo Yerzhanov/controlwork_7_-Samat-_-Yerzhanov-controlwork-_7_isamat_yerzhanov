@@ -30,7 +30,7 @@ def view_record(request, record_pk):
             form.save()
             return redirect('records')
         except ValueError:
-            return render(request, 'view_record.html', {'record': record, 'form': form, 'error': 'Неправильно введеные данные'})
+            return render(request, 'view_record.html', context={'record': record, 'form': form, 'error': 'Неправильно введеные данные'})
 
 
 def create_record(request):
